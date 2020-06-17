@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <title>Quản lý sản phẩm</title>
+    <link rel="stylesheet" href="QuanLySanPham.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body onload="renderListMember()">
+    <div class="form">
+        <div id="formLogIn" class="w3-container w3-card-4 w3-light-grey" onclick="">
+            <div class="information">
+                <a href="#" style="color: aqua;">
+                    <h4>Player information</h4>
+                </a>
+            </div>
+            <br>
+            <br>
+            <div class="information">
+                <label>Legendary</label>
+            </div>
+            <div class="information">
+                <input class="w3-input w3-border w3-round-xxlarge" type="text" id="idName"></input>
+                <span id="name_error" class="error"></span>
+            </div>
+            <div class="information">
+                <label>Number of Clothes</label>
+            </div>
+            <div class="information">
+                <input class="w3-input w3-border w3-round-xxlarge" type="text" id="idId"></input>
+                <span id="id_error" class="error"></span>
+            </div>
+            <div class="information">
+                <label>Ngân Lượng </label>
+            </div>
+            <div class="information">
+                <input class="w3-input w3-border w3-round-xxlarge" type="text" id="idCompany"></input>
+                <span id="company_error" class="error"></span>
+            </div>
+            <div class="information">
+                <label>Stone Position</label>
+            </div>
+            <div class="information">
+                <input class="w3-input w3-border w3-round-xxlarge" type="text" id="idPosition"></input>
+                <span id="position_error" class="error"></span>
+            </div>
+            <div class="information">
+                <label>Age</label>
+            </div>
+            <div class="information">
+                <input class="w3-input w3-border w3-round-xxlarge" type="number" id="idAge"></input>
+                <span id="age_error" class="error"></span>
+            </div>
+
+            <br>
+            <div class="information">
+                <button id="update" class="w3-btn w3-white w3-border w3-border-red w3-round-large"
+                    onclick="idSubmit()">Submit</button>
+                <button id="sua" class="w3-btn w3-white w3-border w3-border-red w3-round-large"
+                    onclick="idSua()">Update</button>
+            </div>
+            <!-- <a href="#"> <img src="thiennhien.jpg" alt=""></a> -->
+
+        </div>
+        <div class="formShow" id="formShow">
+            <div id="menu">
+                <p id="tieuDe" style="font-family: Comic Sans MS;">HLV GerrardLiv8</p>
+                <input type="text" id="timkiem" placeholder="Search...." name="search" onclick="searchForm()"
+                    onkeyup="search(this.value)">
+                <a href="#" id="add"><button onclick="moFormDangNhap()" type="submit" class="btn btn-primary mb-2">Buy
+                        player</button></a>
+            </div>
+            <div id="thongtin">
+                <table id="idTable" cellpadding="20">
+                    <!-- <thead>
+                        <tr>
+                            <th>Numerorder</th>
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>Position</th>
+                            <th>Age</th>
+                            <th width="60px">Delete</th>
+                            <th width="60px" onclick="edit()">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataList">
+
+                    </tbody> -->
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src='https://cdn.jsdelivr.net/g/lodash@4(lodash.min.js+lodash.fp.min.js)'></script>
+    <script src="QuanLySanPham.js"></script>
+</body>
+
+</html>
