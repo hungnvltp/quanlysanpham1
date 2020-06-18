@@ -18,44 +18,69 @@ function idSubmit() {
     let idAge = document.getElementById('idAge').value;
     let idCompany = document.getElementById('idCompany').value;
     // validation
-    // if (_.isEmpty(idName)) {
-    //     document.getElementById('name_error').innerHTML = "Vui lòng nhập tên";
-    // } else if (idName.length <= 2) {
-    //     document.getElementById('name_error').innerHTML = "Họ và tên không được nhỏ quá 2 kí tự";
-    // } else if (idName.length >= 30) {
-    //     document.getElementById('name_error').innerHTML = "Họ và tên không được lớn hơn 30 kí tự";
-    // }
-    // else {
-    //     document.getElementById('name_error').innerHTML = "";
-    // }
-    // if (_.isEmpty(idPosition)) {
-    //     document.getElementById('position_error').innerHTML = "Vui lòng nhập chức vụ";
-    // } else if (idPosition.length <= 2) {
-    //     document.getElementById('position_error').innerHTML = "Chức vụ không được nhỏ quá 2 kí tự";
-    // } else if (idPosition.length >= 30) {
-    //     document.getElementById('position_error').innerHTML = "Chức vụ không được lớn hơn 30 kí tự";
-    // }
-    // else {
-    //     document.getElementById('position_error').innerHTML = "";
-    // }
-    // if (_.isEmpty(idAge)) {
-    //     document.getElementById('age_error').innerHTML = "Vui lòng nhập tuổi";
+    // tên
 
-    // } else if (idAge.length >= 3) {
-    //     document.getElementById('age_error').innerHTML = "Tuổi không được lớn hơn 3 kí tự";
-    // }
-    // else {
-    //     document.getElementById('age_error').innerHTML = "";
-    // }
-    // if (_.isEmpty(idCompany)) {
-    //     document.getElementById('company_error').innerHTML = "Vui lòng nhập Tên Công ty";
+    if (_.isEmpty(idName)) {
+        alert("Vui lòng nhập tên");
+        // return;
+    } else if (idName.length <= 2) {
+        alert("Họ và tên không được nhỏ quá 2 kí tự");
 
-    // } else if (idCompany.length <= 3) {
-    //     document.getElementById('company_error').innerHTML = "Tên Công Ty không được lớn hơn 30 kí tự";
-    // }
-    // else {
-    //     document.getElementById('company_error').innerHTML = "";
-    // }
+    } else if (idName.length >= 30) {
+        alert("Họ và tên không được lớn hơn 30 kí tự");
+
+    }
+    else {
+        alert("");
+
+
+    }
+    // phone number
+    if (_.isEmpty(idPosition)) {
+        alert("Vui lòng nhập số điện thoại");
+
+    } else if (idPosition.length <= 2) {
+        alert("Số điện thoại không được nhỏ quá 2 kí tự");
+
+    } else if (idPosition.length >= 13) {
+        alert("Số Điện thoại không được lớn hơn 13 kí tự");
+
+    }
+    else {
+        alert("");
+
+    }
+    // age
+    if (_.isEmpty(idAge)) {
+        alert("Vui lòng nhập tuổi");
+
+    } else if (idAge.length >= 3) {
+        alert("Tuổi không được lớn hơn 3 kí tự");
+    }
+    else {
+        alert("");
+    }
+    // tên công ty
+    if (_.isEmpty(idCompany)) {
+        alert("Vui lòng nhập Tên Công ty");
+
+    } else if (idCompany.length <= 3) {
+        alert("Tên Công Ty không được lớn hơn 30 kí tự");
+    }
+    else {
+        alert("");
+    }
+    // chức cụ
+    if (_.isEmpty(idPosition)) {
+        alert("Vui lòng nhập chức vụ");
+
+    } else if (idCompany.length <= 3) {
+        alert("chức vụ không được lớn hơn 30 kí tự");
+    }
+    else {
+        alert("");
+    }
+
     // lưu thông tin nhân viên 
     var Member = localStorage.getItem('Member') ? JSON.parse(localStorage.getItem('Member')) : [];
 
@@ -89,10 +114,10 @@ function renderListMember(data = null) {
 
     let tableContent = `<tr>
                             <td>Numerorder</td>
-                            <td>Legendary</td>
-                            <td>Number of Clothes</td>
-                            <td>Ngân Lượng </td>
-                            <td>Stone Position</td>
+                            <td>Name</td>
+                            <td>Phone Number</td>
+                            <td>Company</td>
+                            <td>Position </td>
                             <td>Age</td>
                             <td width="60px">Delete</td>
                             <td width="60px" >Edit</td>
@@ -132,6 +157,7 @@ function deleteMember(id) {
 var currIndex;
 // alert(document.getElementById('idName'))
 function editMember(index) {
+    document.getElementById('formLogIn').style.display = "none";
     currIndex = index;
     document.getElementById('update').style.display = "none";
     document.getElementById('sua').style.display = "block";
