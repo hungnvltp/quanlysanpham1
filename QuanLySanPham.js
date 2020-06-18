@@ -11,15 +11,15 @@ function moFormDangNhap() {
     document.getElementById('idCompany').value = "";
 }
 function idSubmit() {
-    document.getElementById('formLogIn').style.display = "none";
+
     let idName = document.getElementById('idName').value;
     let idId = document.getElementById('idId').value;
     let idPosition = document.getElementById('idPosition').value
-    let idAge = document.getElementById('idAge').value;
     let idCompany = document.getElementById('idCompany').value;
+    let idAge = document.getElementById('idAge').value;
+    document.getElementById('formLogIn').style.display = "none";
     // validation
     // tên
-
     if (_.isEmpty(idName)) {
         alert("Vui lòng nhập tên");
         // return;
@@ -30,11 +30,7 @@ function idSubmit() {
         alert("Họ và tên không được lớn hơn 30 kí tự");
 
     }
-    else {
-        alert("");
 
-
-    }
     // phone number
     if (_.isEmpty(idPosition)) {
         alert("Vui lòng nhập số điện thoại");
@@ -44,42 +40,36 @@ function idSubmit() {
 
     } else if (idPosition.length >= 13) {
         alert("Số Điện thoại không được lớn hơn 13 kí tự");
-
     }
-    else {
-        alert("");
 
-    }
     // age
     if (_.isEmpty(idAge)) {
         alert("Vui lòng nhập tuổi");
 
-    } else if (idAge.length >= 3) {
-        alert("Tuổi không được lớn hơn 3 kí tự");
+    } else if (idAge.length > 4) {
+        alert("Tuổi không được lớn hơn 44444 kí tự");
     }
-    else {
-        alert("");
-    }
+
     // tên công ty
     if (_.isEmpty(idCompany)) {
         alert("Vui lòng nhập Tên Công ty");
 
-    } else if (idCompany.length <= 3) {
+    } else if (idCompany.length <= 2) {
+        alert("Tên Công Ty không được nhỏ quá 2 kí tự");
+
+    }
+    else if (idCompany.length >= 30) {
         alert("Tên Công Ty không được lớn hơn 30 kí tự");
     }
-    else {
-        alert("");
-    }
+
     // chức cụ
     if (_.isEmpty(idPosition)) {
         alert("Vui lòng nhập chức vụ");
 
-    } else if (idCompany.length <= 3) {
+    } else if (idCompany.length >= 30) {
         alert("chức vụ không được lớn hơn 30 kí tự");
     }
-    else {
-        alert("");
-    }
+
 
     // lưu thông tin nhân viên 
     var Member = localStorage.getItem('Member') ? JSON.parse(localStorage.getItem('Member')) : [];
@@ -91,6 +81,7 @@ function idSubmit() {
         idAge: idAge,
         idCompany: idCompany
     });
+    // console.log(Member);
     localStorage.setItem('Member', JSON.stringify(Member));
     this.renderListMember();
     document.getElementById('idName').value = "";
@@ -98,20 +89,14 @@ function idSubmit() {
     document.getElementById('idPosition').value = "";
     document.getElementById('idAge').value = "";
     document.getElementById('idCompany').value = "";
-} var Member;
+}
+var Member;
 function renderListMember(data = null) {
     if (data == null) {
         Member = localStorage.getItem('Member') ? JSON.parse(localStorage.getItem('Member')) : [];
     } else {
         Member = data;
     }
-
-    if (Member.length === 0) {
-
-
-        // return false;
-    }
-
     let tableContent = `<tr>
                             <td>Numerorder</td>
                             <td>Name</td>
@@ -152,12 +137,18 @@ function deleteMember(id) {
     Member.splice(id, 1);
     localStorage.setItem('Member', JSON.stringify(Member));
     renderListMember();
+    document.getElementById('idName').value = "";
+    document.getElementById('idId').value = "";
+    document.getElementById('idPosition').value = "";
+    document.getElementById('idAge').value = "";
+    document.getElementById('idCompany').value = "";
+
 }
 // sửa 
 var currIndex;
-// alert(document.getElementById('idName'))
+
 function editMember(index) {
-    document.getElementById('formLogIn').style.display = "none";
+
     currIndex = index;
     document.getElementById('update').style.display = "none";
     document.getElementById('sua').style.display = "block";
@@ -170,6 +161,8 @@ function editMember(index) {
     document.getElementById('idPosition').value = valueNew.idPosition
     document.getElementById('idCompany').value = valueNew.idCompany
     document.getElementById('idAge').value = valueNew.idAge
+
+
 }
 function idSua() {
     var ChangeItem = newValue();
@@ -182,7 +175,7 @@ function idSua() {
     document.getElementById('idPosition').value = "";
     document.getElementById('idAge').value = "";
     document.getElementById('idCompany').value = "";
-
+    document.getElementById('formLogIn').style.display = "none";
 };
 function newValue() {
     ol = {
@@ -194,19 +187,21 @@ function newValue() {
     }
     return ol;
 }
-
+// tìm kiêm 
 function search(value) {
+    Member = localStorage.getItem('Member') ? JSON.parse(localStorage.getItem('Member')) : [];
     if (value == '') {
         renderListMember();
     } else {
-        Member = localStorage.getItem('Member') ? JSON.parse(localStorage.getItem('Member')) : [];
-        result = Member.filter(member => member.idName.startsWith(value)
-            || member.idPosition.startsWith(value)
-            || member.idId.startsWith(value)
-            || member.idCompany.startsWith(value)
-            || member.idAge.startsWith(value));
+        let result = Member.filter(Member =>
+            Member.idName.startsWith(value)
+            || Member.idPosition.match(value)
+            || Member.idId.includes(value)
+            || Member.idCompany.includes(value)
+            || Member.idAge.match(value));
 
 
         renderListMember(result ?? []);
     }
 }
+// hello
