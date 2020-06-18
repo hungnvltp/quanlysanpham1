@@ -38,7 +38,7 @@ function idSubmit() {
     if (_.isEmpty(idAge)) {
         alert("Vui lòng nhập tuổi");
     } else if (idAge.length > 4) {
-        alert("Tuổi không được lớn hơn 44444 kí tự");
+        alert("Tuổi không được lớn hơn 4 kí tự");
     }
     // tên công ty
     if (_.isEmpty(idCompany)) {
@@ -91,10 +91,7 @@ function renderListMember(data = null) {
                             <td width="60px" >Edit</td>
                         </tr>`;
     Member.forEach((Member, index) => {
-
         let MemberId = index;
-
-
         tableContent += `<tr>
                             <td>${index + 1}</td>
                             <td>${Member.idName}</td>
@@ -108,7 +105,6 @@ function renderListMember(data = null) {
                              <td >
                             <a href="#" onclick="editMember(${index})">Edit</a>
                             </td>
-                            
                         </tr>`;
     })
     document.getElementById("idTable").innerHTML = tableContent;
@@ -167,6 +163,7 @@ function search(value) {
     if (value == '') {
         renderListMember();
     } else {
+
         let result = Member.filter(Member => Member.idName.startsWith(value)
             || Member.idPosition.match(value)
             || Member.idId.includes(value)
