@@ -9,70 +9,71 @@
 
 <body onload="renderListMember()">
     <div class="form">
+
         <div id="formLogIn" class="w3-container w3-card-4 w3-light-grey" onclick="">
+            <a href="#" onclick="closeAddForm()"><img src="anhx.jpg" width="40px" height="40px" id="anh">
+            </a>
             <div class="information">
-                <a href="#" style="color: aqua;">
-                    <h4>Sing in</h4>
+                <a href="#">
+                    <h4>Form</h4>
                 </a>
             </div>
-            <br>
+
             <br>
             <div class="information">
                 <label>Name</label>
             </div>
             <div class="information">
-                <input class="w3-input w3-border w3-round-xxlarge" type="text" id="idName"></input>
+                <input class="forms" type="text" id="idName"></input>
                 <span id="name_error" class="error"></span>
             </div>
             <div class="information">
                 <label>Phone number</label>
             </div>
             <div class="information">
-                <input class="w3-input w3-border w3-round-xxlarge" type="number" id="idId"></input>
+                <input class="forms" type="number" id="idId"></input>
                 <span id="id_error" class="error"></span>
             </div>
             <div class="information">
                 <label>Company</label>
             </div>
             <div class="information">
-                <input class="w3-input w3-border w3-round-xxlarge" type="text" id="idCompany"></input>
+                <input class="forms" type="text" id="idCompany"></input>
                 <span id="company_error" class="error"></span>
             </div>
             <div class="information">
                 <label> Position</label>
             </div>
             <div class="information">
-                <input class="w3-input w3-border w3-round-xxlarge" type="text" id="idPosition"></input>
+                <input class="forms" type="text" id="idPosition"></input>
                 <span id="position_error" class="error"></span>
             </div>
             <div class="information">
                 <label>Age</label>
             </div>
             <div class="information">
-                <input class="w3-input w3-border w3-round-xxlarge" type="number" id="idAge"></input>
+                <input class="forms" type="number" id="idAge"></input>
                 <span id="age_error" class="error"></span>
             </div>
 
             <br>
             <div class="information">
-                <button id="update" class="w3-btn w3-white w3-border w3-border-red w3-round-large"
-                    onclick="idSubmit()">Submit</button>
-                <button id="sua" class="w3-btn w3-white w3-border w3-border-red w3-round-large"
-                    onclick="idSua()">Update</button>
+                <button id="update" onclick="idSubmit()">Submit</button>
+                <button id="sua" onclick="idSua()">Update</button>
             </div>
             <!-- <a href="#"> <img src="thiennhien.jpg" alt=""></a> -->
 
         </div>
-        <div class="formShow" id="formShow">
+        <div class="formShow">
             <div id="menu">
-                <p id="tieuDe" style="font-family: Comic Sans MS;">Data List</p>
-                <input type="text" id="timkiem" placeholder="Search...." name="search" onclick="searchForm()"
-                    onkeyup="search(this.value)">
+                <h3 id="tieuDe">Data List</h3>
                 <a href="#" id="add"><button onclick="moFormDangNhap()" type="submit" class="btn btn-primary mb-2">Add
                         New</button></a>
+                <input type="text" id="timkiem" placeholder="Search...." name="search" onkeyup="search(this.value)">
+
             </div>
             <div id="thongtin">
-                <table id="idTable" cellpadding="20">
+                <table id="idTable" cellpadding="20" border="0">
                     <!-- <thead>
                         <tr>
                             <th>Numerorder</th>
@@ -85,7 +86,7 @@
                         </tr>
                     </thead>
                     <tbody id="dataList">
-
+s
                     </tbody> -->
                 </table>
             </div>
