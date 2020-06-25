@@ -182,21 +182,7 @@ function newValue() {
 
 function search(value) {
     Member = localStorage.getItem('Member') ? JSON.parse(localStorage.getItem('Member')) : [];
-    // input = document.getElementById("timkiem");
-    // filter = input.value.toUpperCase();
-    // table = document.getElementById("idTable");
-    // tr = table.getElementsByTagName("tr");
-    // for (i = 0; i < tr.length; i++) {
-    //     td = tr[i].getElementsByTagName("td")[0];
-    //     if (td) {
-    //         txtValue = td.textContent || td.innerText;
-    //         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-    //             tr[i].style.display = "";
-    //         } else {
-    //             tr[i].style.display = "none";
-    //         }
-    //     }
-    // }
+
     if (value == '') {
         renderListMember();
     } else {
@@ -209,3 +195,4 @@ function search(value) {
 
     }
 }
+// xin chao
